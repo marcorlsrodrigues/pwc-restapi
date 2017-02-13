@@ -39,11 +39,17 @@
           <a class="navbar-brand" href="#">Clinica Médica</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li><a id="navbar-home" href="#">Home</a></li>
+              <li><a id="navbar-insert" href="#">Insert</a></li>
+              <li><a id="navbar-delete" href="#">Delete</a></li>
+              <li><a id="navbar-update" href="#">Update</a></li>
+            </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="container-home">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
@@ -104,7 +110,25 @@
       </div>
 
       <hr>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </div> <!-- /container -->        
+    <div class="container" id="container-insert">
+      <div class="row">
+        <div class="form-group">
+          <label for="medicoNome">Nome</label>
+          <input type="text" class="form-control" id="medicoNome" placeholder="Introduza Nome" />
+        </div>
+        <div class="form-group">
+          <label for="medicoApelido">Apelido</label>
+          <input type="text" class="form-control" id="medicoApelido" placeholder="Introduza Apelido" />
+        </div>
+        <div class="form-group">
+          <label for="medicoEmail">Nome</label>
+          <input type="text" class="form-control" id="medicoEmail" placeholder="Introduza Email" />
+        </div>
+        <p><a id="inserir-medico" class="btn btn-default" href="#" role="button">Inserir Médico</a></p>
+      </div>
+    </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>

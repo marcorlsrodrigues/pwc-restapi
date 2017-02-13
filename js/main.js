@@ -94,3 +94,42 @@ $(function(){
 		});
 	});
 });
+
+
+$(function(){
+	$('#inserir-medico').on('click', function(e){
+		var nomeMedico = $('#medicoNome').val();
+		var apelidoMedico = $('#medicoApelido').val();
+		var emailMedico = $('#medicoEmail').val();
+
+		fetch('https://trabalho-pwc-marcorodrigues.c9users.io/medicos', {
+			headers: {
+		      'Accept': 'application/json',
+		      'Content-Type': 'application/json'
+		    },
+		    method: "POST",
+		    body: JSON.stringify({nome: nomeMedico, apelido: apelidoMedico,email:emailMedico})
+		}).then(function(response) {
+			console.log('OK');
+		}).catch(function(err) {
+			console.log(err);
+			$('#todas-consultas').removeClass('disabled');
+		});
+	});
+});
+
+$(function(){
+	$('#navbar-home').on('click', function(e){
+		console.log('Teste');
+		$("#container-home").show();
+		$("#container-insert").hide();
+	});
+});
+
+$(function(){
+	$('#navbar-insert').on('click', function(e){
+		console.log('Teste');
+		$("#container-home").hide();
+		$("#container-insert").show();
+	});
+});
