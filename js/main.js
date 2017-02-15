@@ -102,18 +102,46 @@ $(function(){
 		var apelidoMedico = $('#medicoApelido').val();
 		var emailMedico = $('#medicoEmail').val();
 
-		fetch('https://trabalho-pwc-marcorodrigues.c9users.io/medicos', {
+		var request = new Request('https://trabalho-pwc-marcorodrigues.c9users.io/medicos', {
+			method: 'POST', 
+			body: JSON.stringify({nome: nomeMedico, apelido: apelidoMedico,email: emailMedico}),
+			mode: 'cors', 
+			redirect: 'follow',
+			headers: new Headers({
+				'Content-Type': 'application/json'
+			})
+		});
+
+		fetch(request).then(function(response) {
+			console.log('OK');
+		}).catch(function(err) {
+			console.log(err);
+			$('#inserir-medico').removeClass('disabled');
+		});
+	});
+});
+
+$(function(){
+	$('#inserir-utente').on('click', function(e){
+		var nomeUtente = $('#utenteNome').val();
+		var apelidoUtente = $('#utenteApelido').val();
+		var emailUtente = $('#utenteEmail').val();
+
+		fetch('https://trabalho-pwc-marcorodrigues.c9users.io/utentes', {
 			headers: {
-		      'Accept': 'application/json',
-		      'Content-Type': 'application/json'
+		   		'Accept': 'application/json',
+		      	'Content-Type': 'application/json'
 		    },
-		    method: "POST",
-		    body: JSON.stringify({nome: nomeMedico, apelido: apelidoMedico,email:emailMedico})
+		    method: 'post',
+		    mode: 'cors',
+		    body: {	nome:"Utente",
+									apelido:"Utente",
+									email:"Utente"}
 		}).then(function(response) {
 			console.log('OK');
 		}).catch(function(err) {
 			console.log(err);
-			$('#todas-consultas').removeClass('disabled');
+			$('#inserir-utente').removeClass('disabled');
 		});
 	});
 });
@@ -128,7 +156,6 @@ $(function(){
 
 $(function(){
 	$('#navbar-insert').on('click', function(e){
-		console.log('Teste');
 		$("#container-home").hide();
 		$("#container-insert").show();
 	});
