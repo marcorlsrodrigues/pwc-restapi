@@ -40,10 +40,46 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-              <li><a id="navbar-home" href="#">Home</a></li>
-              <li><a id="navbar-insert" href="#">Insert</a></li>
-              <li><a id="navbar-delete" href="#">Delete</a></li>
-              <li><a id="navbar-update" href="#">Update</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">List <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a id="navbar-listMedicos" href="#">Médicos</a></li>
+                  <li><a id="navbar-listUtentes" href="#">Utentes</a></li>
+                  <li><a id="navbar-listConsultas" href="#">Consultas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Insert <span class="caret"></span></>
+                <ul class="dropdown-menu">
+                  <li><a id="navbar-insertMedicos" href="#">Médicos</a></li>
+                  <li><a id="navbar-insertUtentes" href="#">Utentes</a></li>
+                  <li><a id="navbar-insertConsultas" href="#">Consultas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Delete <span class="caret"></span></>
+                <ul class="dropdown-menu">
+                  <li><a id="navbar-deleteMedicos" href="#">Médicos</a></li>
+                  <li><a id="navbar-deleteUtentes" href="#">Utentes</a></li>
+                  <li><a id="navbar-deleteConsultas" href="#">Consultas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Update <span class="caret"></span></>
+                <ul class="dropdown-menu">
+                  <li><a id="navbar-updateMedicos" href="#">Médicos</a></li>
+                  <li><a id="navbar-updateUtentes" href="#">Utentes</a></li>
+                  <li><a id="navbar-updateConsultas" href="#">Consultas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Find One <span class="caret"></span></>
+                <ul class="dropdown-menu">
+                  <li><a id="navbar-findOneMedicos" href="#">Médicos</a></li>
+                  <li><a id="navbar-findOneUtentes" href="#">Utentes</a></li>
+                  <li><a id="navbar-findOneConsultas" href="#">Consultas</a></li>
+                </ul>
+              </li>
             </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -51,7 +87,7 @@
 
     <div class="container" id="container-home">
       <!-- Example row of columns -->
-      <div class="row">
+      <div class="row listMedicos">
         <div class="col-md-6">
           <p><a id="todos-medicos" class="btn btn-default" href="#" role="button">Todos os Médicos</a></p>
           <div class="container" id="div-todos-medicos">
@@ -70,7 +106,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row listUtentes">
         <div class="col-md-6">
           <p><a id="todos-utentes" class="btn btn-default" href="#" role="button">Todos os Utentes</a></p>
           <div class="container" id="div-todos-utentes">
@@ -89,7 +125,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row listConsultas">
         <div class="col-md-6">
           <p><a id="todas-consultas" class="btn btn-default" href="#" role="button">Todas as Consultas</a></p>
           <div class="container" id="div-todas-consultas">
@@ -111,8 +147,8 @@
 
       <hr>
     </div> <!-- /container -->        
-    <div class="container" id="container-insert">
-      <div class="row">
+    <div class="container inserts" id="container-insert">
+      <div class="row insertMedico">
         <div class="form-group">
           <label for="medicoNome">Nome</label>
           <input type="text" class="form-control" id="medicoNome" placeholder="Introduza Nome" />
@@ -127,9 +163,7 @@
         </div>
         <p><a id="inserir-medico" class="btn btn-default" href="#" role="button">Inserir Médico</a></p>
       </div>
-    </div>
-    <div class="container" id="container-insertUtente">
-      <div class="row">
+      <div class="row insertUtente">
         <div class="form-group">
           <label for="utenteNome">Nome</label>
           <input type="text" class="form-control" id="utenteNome" placeholder="Introduza Nome" />
@@ -144,9 +178,7 @@
         </div>
         <p><a id="inserir-utente" class="btn btn-default" href="#" role="button">Inserir Utente</a></p>
       </div>
-    </div>
-    <div class="container" id="container-insertConsulta">
-      <div class="row">
+      <div class="row insertConsulta">
         <div class="form-group">
           <label for="datahora">Data/Hora da Consulta</label>
           <input type="text" class="form-control" id="datahora" placeholder="Introduza Data e Hora" />
@@ -163,7 +195,171 @@
           <label for="diagnostico">Diagnóstico</label>
           <input type="text" class="form-control" id="diagnostico" placeholder="Introduza Diagnóstico" />
         </div>
-        <p><a id="inserir-utente" class="btn btn-default" href="#" role="button">Inserir Utente</a></p>
+        <p><a id="inserir-consulta" class="btn btn-default" href="#" role="button">Inserir Consulta</a></p>
+      </div>
+    </div>
+    <div class="container deletes" id="container-deleteConsulta">
+      <div class="row deleteConsulta">
+        <div class="form-group">
+          <label for="id-consulta">Consulta: </label>
+          <input type="text" class="form-control" id="id-consulta" placeholder="Introduza Consulta" />
+        </div>
+        <p><a id="apagar-consulta" class="btn btn-default" href="#" role="button">Apagar Consulta</a></p>
+      </div>
+      <div class="row deleteUtente">
+        <div class="form-group">
+          <label for="id-utente">Utente: </label>
+          <input type="text" class="form-control" id="id-utente" placeholder="Introduza Utente" />
+        </div>
+        <p><a id="apagar-utente" class="btn btn-default" href="#" role="button">Apagar Utente</a></p>
+      </div>
+      <div class="row deleteMedico">
+        <div class="form-group">
+          <label for="id-medico">Médico: </label>
+          <input type="text" class="form-control" id="id-medico" placeholder="Introduza Médico" />
+        </div>
+        <p><a id="apagar-medico" class="btn btn-default" href="#" role="button">Apagar Médico</a></p>
+      </div>
+    </div>
+    <div class="container updates" id="container-update">
+      <div class="row updateMedico">
+        <div class="form-group">
+          <label for="medicoIdUpdate">Id</label>
+          <input type="text" class="form-control" id="medicoIdUpdate" placeholder="Introduza ID" />
+        </div>
+        <div class="form-group">
+          <label for="medicoNomeUpdate">Nome</label>
+          <input type="text" class="form-control" id="medicoNomeUpdate" placeholder="Introduza Nome" />
+        </div>
+        <div class="form-group">
+          <label for="medicoApelidoUpdate">Apelido</label>
+          <input type="text" class="form-control" id="medicoApelidoUpdate" placeholder="Introduza Apelido" />
+        </div>
+        <div class="form-group">
+          <label for="medicoEmailUpdate">Nome</label>
+          <input type="text" class="form-control" id="medicoEmailUpdate" placeholder="Introduza Email" />
+        </div>
+        <p><a id="atualizar-medico" class="btn btn-default" href="#" role="button">Atualizar Médico</a></p>
+      </div>
+      <div class="row updateUtente">
+        <div class="form-group">
+          <label for="utenteIdUpdate">Id</label>
+          <input type="text" class="form-control" id="utenteIdUpdate" placeholder="Introduza ID" />
+        </div>
+        <div class="form-group">
+          <label for="utenteNomeUpdate">Nome</label>
+          <input type="text" class="form-control" id="utenteNomeUpdate" placeholder="Introduza Nome" />
+        </div>
+        <div class="form-group">
+          <label for="utenteApelidoUpdate">Apelido</label>
+          <input type="text" class="form-control" id="utenteApelidoUpdate" placeholder="Introduza Apelido" />
+        </div>
+        <div class="form-group">
+          <label for="utenteEmailUpdate">Email</label>
+          <input type="text" class="form-control" id="utenteEmailUpdate" placeholder="Introduza Email" />
+        </div>
+        <p><a id="atualizar-utente" class="btn btn-default" href="#" role="button">Atualizar Utente</a></p>
+      </div>
+      <div class="row updateConsulta">
+        <div class="form-group">
+          <label for="consultaIdUpdate">Id</label>
+          <input type="text" class="form-control" id="consultaIdUpdate" placeholder="Introduza ID" />
+        </div>
+        <div class="form-group">
+          <label for="datahoraUpdate">Data/Hora da Consulta</label>
+          <input type="text" class="form-control" id="datahoraUpdate" placeholder="Introduza Data e Hora" />
+        </div>
+        <div class="form-group">
+          <label for="utente_idUpdate">Utente</label>
+          <input type="text" class="form-control" id="utente_idUpdate" placeholder="Introduza Utente" />
+        </div>
+        <div class="form-group">
+          <label for="medico_idUpdate">Médico</label>
+          <input type="text" class="form-control" id="medico_idUpdate" placeholder="Introduza Médico" />
+        </div>
+        <div class="form-group">
+          <label for="diagnosticoUpdate">Diagnóstico</label>
+          <input type="text" class="form-control" id="diagnosticoUpdate" placeholder="Introduza Diagnóstico" />
+        </div>
+        <p><a id="atualizar-consulta" class="btn btn-default" href="#" role="button">Atualizar Consulta</a></p>
+      </div>
+    </div>
+    <div class="container findOne" id="container-findOne">
+      <div class="row findOneMedico">
+        <div class="form-group">
+          <label for="findIdMedico">Id</label>
+          <input type="text" class="form-control" id="findIdMedico" placeholder="Introduza ID" />
+        </div>
+      </div>
+      <!-- Example row of columns -->
+      <div class="row findOneMedico">
+        <div class="col-md-6">
+          <p><a id="ummedico" class="btn btn-default" href="#" role="button">Find Médico</a></p>
+          <div class="container" id="div-ummedico">
+            <table id="table-ummedico" class="table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Apelido</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row findOneUtente">
+        <div class="form-group">
+          <label for="findIdUtente">Id</label>
+          <input type="text" class="form-control" id="findIdUtente" placeholder="Introduza ID" />
+        </div>
+      </div>
+      <!-- Example row of columns -->
+      <div class="row findOneUtente">
+        <div class="col-md-6">
+          <p><a id="umutente" class="btn btn-default" href="#" role="button">Find Utente</a></p>
+          <div class="container" id="div-umutente">
+            <table id="table-umutente" class="table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Apelido</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row findOneConsulta">
+        <div class="form-group">
+          <label for="findIdConsulta">Id</label>
+          <input type="text" class="form-control" id="findIdConsulta" placeholder="Introduza ID" />
+        </div>
+      </div>
+      <!-- Example row of columns -->
+      <div class="row findOneConsulta">
+        <div class="col-md-6">
+          <p><a id="umaconsulta" class="btn btn-default" href="#" role="button">Find Consulta</a></p>
+          <div class="container" id="div-umaconsulta">
+            <table id="table-umaconsulta" class="table">
+              <thead>
+                <tr>
+                  <th>Data/Hora</th>
+                  <th>Utente</th>
+                  <th>Médico</th>
+                  <th>Diagnóstico</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
