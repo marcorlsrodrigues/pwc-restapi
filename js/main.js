@@ -508,6 +508,13 @@ $(function(){
 });
 
 $(function(){
+	$('#navbar-filetransfer').on('click', function(e){
+		hideDivs();
+		$(".transferfile").show();
+	});
+});
+
+$(function(){
 	hideDivs();
 });
 
@@ -527,4 +534,5 @@ function hideDivs(){
 	$(".findOneMedico").hide();
 	$(".findOneConsulta").hide();
 	$(".findOneUtente").hide();
+	$(".transferfile").hide();
 }

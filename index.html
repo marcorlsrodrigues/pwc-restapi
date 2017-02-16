@@ -22,6 +22,12 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script type="text/javascript" src="js/peer.js"></script>
+        <script type="text/javascript" src="js/filetransfer.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -79,6 +85,9 @@
                   <li><a id="navbar-findOneUtentes" href="#">Utentes</a></li>
                   <li><a id="navbar-findOneConsultas" href="#">Consultas</a></li>
                 </ul>
+              </li>
+              <li>
+                <a id="navbar-filetransfer" href="#" role="button" aria-haspopup="true" aria-expanded="false">File Transfer</>
               </li>
             </ul>
         </div><!--/.navbar-collapse -->
@@ -362,8 +371,47 @@
         </div>
       </div>
     </div>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <div class="container transferfile" id="container-transferfile">
+      <div class="row">
+      <div class="row">
+        <label for="setusername">Introduza o seu Nome de Utilizador:</label>
+        <input type="text" class="form-control" id="setusername" placeholder="Nome de Utilizador aqui..." />
+        </div>
+      </div>
+      <div class="row">
+        <div id="actions">
+          <div class="row">
+              <div class="form-group">
+                <label for="rid">O seu ID: <span id="pid"></span></label>
+                <input type="text" class="form-control" id="rid" placeholder="Id de outro peer" />
+                <input class="btn btn-success" type="button" value="Conectar" id="connect">
+                <input class="btn btn-danger" type="button" value="Fechar conexão" id="close">
+              </div>
+          </div>
+          <div class="row"></div>
+          <div class="row">
+            <form id="send">
+              <input type="text" id="text" placeholder="Introduza uma mensagem" class="form-control">
+              <input type="submit" id="sendtopeers" class="btn btn-primary" value="Enviar">
+            </form>
+          </div>
+        </div>
+
+        <div id="wrap"><div id="connections"><span class="filler">Não tem conexões.</span></div>
+        <div class="clear"></div></div>
+
+        <div class="upload-drop-zone" id="box">
+            Arraste os ficheiros para aqui
+        </div>
+  
+        
+        <div class="warning browser">
+          <div class="important">A versão do seu browser: <span id="browsers"></span><br>
+          <div class="log" style="color:#FF7500;text-shadow:none;padding:15px;background:#eee"><strong>Estado da Conexão</strong>:<br></div>
+          </div>
+            </div>
+        </div>
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
