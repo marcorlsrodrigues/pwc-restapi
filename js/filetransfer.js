@@ -33,7 +33,7 @@ peer.on('error', function(err) {
 function connect(c) {
   var username = $('#setusername').val();
   var requester = '';
-  if(c.metadata.username != undefined && c.metadata.username != username){
+  if(c.metadata != undefined && c.metadata.username != undefined && c.metadata.username != username){
     requester = c.metadata.username
   }else{
     requester = c.peer;
@@ -41,7 +41,7 @@ function connect(c) {
   // Handle a chat connection.
   if (c.label === 'chat') {
     var chatbox = $('<div></div>').addClass('connection').addClass('active').attr('id', c.peer);
-    var header = $('<h1></h1>').html('Chat with <strong>' + requester + '</strong>');
+    var header = $('<h1 id="heading_chat"></h1>').html('Chat with <strong>' + requester + '</strong>');
     var messages = $('<div><em>Peer connected.</em></div>').addClass('messages');
     chatbox.append(header);
     chatbox.append(messages);
@@ -58,7 +58,18 @@ function connect(c) {
     $('#connections').append(chatbox);
 
     c.on('data', function(data) {
-      messages.append('<div><span class="peer">' + c.peer + '</span>: ' + data +
+      var usernametextbox = $('#setusername').val();
+      var user = data.substring(0, data.indexOf(":"));
+      console.log('usernametextbox');
+      console.log(usernametextbox);
+      console.log('user');
+      console.log(user);
+      if(user != usernametextbox){
+          $('#heading_chat').html('Chat with <strong>' + user + '</strong>');
+      }
+
+      var msg = data.substring(data.indexOf(":")+1, data.length);
+      messages.append('<div><span class="peer">' + user + '</span>: ' + msg +
         '</div>');
         });
         c.on('close', function() {
@@ -146,8 +157,7 @@ $('#send').submit(function(e) {
   var msg = $('#text').val();
   eachActiveConnection(function(c, $c) {
     if (c.label === 'chat') {
-      c.metadata.username = uname;
-      c.send(msg);
+      c.send(uname+':'+msg);
       $c.find('.messages').append('<div><span class="you">You: </span>' + msg
         + '</div>');
     }
